@@ -7,7 +7,10 @@ import torchvision.transforms as T
 
 import numpy as np 
 from PIL import Image, ImageDraw
-
+import os
+import sys
+# adding this for colab :)
+sys.path.append("/content/RT-DETR/rtdetrv2_pytorch")
 from src.core import YAMLConfig
 
 
