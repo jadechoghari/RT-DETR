@@ -55,6 +55,8 @@ def main(args, ):
             
         def forward(self, images, orig_target_sizes):
             outputs = self.model(images)
+            print("outputs.logits[0, :3, :3]", outputs['pred_logits'][0, :3, :3])
+            print("outputs['pred_boxes'][0, :3, :3]", outputs['pred_boxes'][0, :3, :3])
             outputs = self.postprocessor(outputs, orig_target_sizes)
             return outputs
 
@@ -72,7 +74,9 @@ def main(args, ):
 
     output = model(im_data, orig_size)
     labels, boxes, scores = output
-
+    print("label: ", labels[0][:4])
+    print("boxes: ", boxes[0][:4])
+    print("scores", scores[0][:4])
     draw([im_pil], labels, boxes, scores)
 
 
